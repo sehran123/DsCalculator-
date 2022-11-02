@@ -1,0 +1,224 @@
+<html>
+<style>
+body {
+  background-color: black;
+  -webkit-user-select: none;
+  font-family: Times New Roman;
+  border-radius:10px;
+}
+
+  .button {
+    color:black;
+    background-color: white;
+    border: 0px;
+    outline: none;
+    display: inline-block;
+    width:24%;
+    height:90px;
+    text-align:center;
+    font-size:30px;
+    animation: 10s bc infinite linear;
+    margin:0 auto;
+  }
+  @keyframes bc {
+    0%{border-left-color: red;}
+    25%{border-bottom-color: blue;}
+    50%{border-right-color: green;}
+    75%{border-top-color: #bd69f7;}
+  }
+  .button:active {
+    background-color: #eaeaea;
+    border-radius: 100px;
+    animation: .5s increase 1;
+  }
+  @keyframes increase {
+    0%{background-color:white;}
+    100%{background-color:#eaeaea;}
+  }
+  .display {
+    caret-color: black;
+    outline:none;
+    text-align: right;
+    font-size:300%;
+    width :100%;
+    height: 20%;
+    border: 0px;
+    -webkit-user-select:none;
+user-select:none;
+
+  }
+  .display[type=text] {
+    font-family:Times New Roman;
+   letter-spacing: 3px;
+  }
+  .display1 {
+    outline:none;
+    text-align: right;
+    width :100%;
+    height:10%;
+    font-size: 250%;
+    border: 0px;
+    border-bottom: 2px black solid;
+  }
+   .display1[type=text] {
+    font-family:Times New Roman;
+   e
+  }
+  .c {
+    display:inline-block;
+    width: 100%;
+    height:100%;
+    background-color: white;
+    
+  }
+  .form {
+    border-radius: 10px;
+  }
+  .H {
+    height: 62%;
+ width: 0%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  overflow-x: hidden;
+  transition: .6s;
+  padding-top: 60px;
+  }
+  .cut {
+    color:red;
+    font-weight: bold;
+    font-size: 3rem;
+    width:40px;
+    height: 40px;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+  }
+  .cut:active {
+    color:#840000;
+  }
+
+ .hisarea {
+   color:white;
+   background-color: black;
+   font-size: 20px;
+   width: 100%;
+   height: 100%;
+ }
+ .d {
+   color:red;
+   position: absolute;
+   top:10%;
+   left:5%;
+   font-size: 20px;
+ }
+ .d:active {
+   color:black;
+   background-color: red;
+ }
+ .his {
+   position: relative;
+   left:5%;
+   display: inline-block;
+   width:24%;
+   font-weight: bold;
+   font-size: 20px;
+ }
+ .i {
+   background-color: red;
+   border-radius: 100px;
+  width:23px;
+  height:23px;
+ }
+  </style>
+  <body>
+    <div class="c">
+    <form name="cal" class="form">
+      <input class="display" type="text" name="textbox" id="display" autofocus readonly/></input>
+       <input class="display1" type="text" name="textbox1" id="display1" readonly/></input>
+      <br>
+  <p class="his" onclick="openN()">History</p>
+      <input type="button" class="button Clear " value="c" onclick="cal.textbox.value ='', cal.textbox1.value=''"></input>
+      
+      <input type="button" value="&#9003;" class="button del" onclick="cal.textbox.value =textbox.value.substr(0,textbox.value.length-1)"></input>
+      
+      <input type="button" value="÷" class="button" onclick="cal.textbox.value +='/'"></input>
+ <hr class="new1">
+ <input type="button" class="button" value="7" onclick="cal.textbox.value +='7'"></input>
+    
+      <input type="button" value="8" class="button" onclick="cal.textbox.value +='8'"></input>
+      
+ <input type="button" class="button" value="9" onclick="cal.textbox.value +='9'"></input>
+      
+      <input type="button" class="button" value="×" onclick="cal.textbox.value +='*',button()"></input>
+  <hr class="hr2">    
+ <input type="button" class="button" value="4" onclick="cal.textbox.value +='4'"></input>
+      
+      <input type="button" value="5" class="button" onclick="cal.textbox.value +='5'"></input>
+      
+ <input type="button" class="button" value="6" onclick="cal.textbox.value +='6'"></input>
+      
+      <input type="button" value=" - " class="button" onclick="cal.textbox.value +='-'"></input>
+  <hr class="hr3">    
+ <input type="button" class="button" value="1" onclick="cal.textbox.value +='1'"></input>
+
+<input type="button" value="2" class="button" onclick="cal.textbox.value +='2'"></input>
+ 
+ <input type="button" class="button" value="3" onclick="cal.textbox.value +='3'"></input>
+      
+      <input type="button" value="+" class="button" onclick="cal.textbox.value +='+'"></input>
+     <hr class="hr4"> 
+      <input type="button" class="button" value="00" onclick="cal.textbox.value +='00'"></input>
+      
+<input type="button" value="0" class="button" onclick="cal.textbox.value +='0'"></input>
+
+ <input type="button" class="button" value="." onclick="cal.textbox.value +='.'"></input>
+ 
+  <input type="button" id="equal" value=" = " class="button equal" onclick="hiSave()"></input>
+      
+<div id="History" class="H"><center><h><font color="white">HISTORY</font></h></center>
+      <span class="cut" onclick="closeN()">×</span>
+      <center><hr>
+        <p class="hisarea" id="hdisplay">
+          
+        </p>
+        </center>
+        <center>
+          <span class="d" onclick="cl()">Clear All</span>
+        </center>
+        
+       </div><center>
+
+    
+    </center>
+    </form>
+    
+  </body>
+  <script>
+   var hi = document.getElementById("hdisplay");
+    
+    function openN() {
+      document.getElementById("History").style.width ="100%";
+       if(localStorage.getItem("q") == null) {
+      hi.innerHTML = "";
+    } else {
+      hi.innerHTML = localStorage.getItem("q");
+    }
+    }
+    function closeN() {
+      document.getElementById("History").style.width ="0%";
+    }
+    function hiSave() {
+      cal.textbox1.value = eval(cal.textbox.value);
+      document.getElementById("hdisplay").innerHTML += '<h>' + document.getElementById("display").value + ' = ' + document.getElementById("display1").value  + '<hr color="#8ff3ff">';
+      localStorage.setItem("q",hi.innerHTML);
+    }
+    
+    function cl() {
+      document.getElementById('hdisplay').innerHTML ="",localStorage.clear();
+    }
+    
+        </script>
+</html>
